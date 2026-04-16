@@ -1,31 +1,22 @@
-import localFont from "next/font/local";
+import { Outfit } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar"; 
+import Navbar from "@/components/Navbar";
 
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
 });
 
 export const metadata = {
-  title: "Bitlinks - Your trusted URL shortener",
-  description: "Bitlinks helps you shorten your Urls easily",
+  title: "BitLinks - Premium URL Shortener",
+  description: "The most straightforward and professional URL shortener in the market.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-purple-50`}
-      > 
-      <Navbar/>
+      <body className={`${outfit.variable} font-sans antialiased grid-bg min-h-screen`}>
+        <Navbar />
         {children}
       </body>
     </html>
